@@ -1,4 +1,7 @@
-creditUser = ph123
-creditPassword = 1111111pP
-debitUser = ph456
-debitPassword = 1111111pP
+url=https://aspireapp.odoo.com
+username=user@aspireapp.com
+password=@sp1r3app
+
+productName=aaspdemotest
+productQuantity=100.00
+productConsume=10

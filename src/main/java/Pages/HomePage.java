@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-public class HomePagePage extends BasePage{
+public class HomePage extends BasePage{
 
-public HomePagePage(WebDriver driver){
+public HomePage(WebDriver driver){
     super(driver);
 }
 
@@ -25,9 +25,17 @@ public HomePagePage(WebDriver driver){
     public WebElement barcodeLink;
 
 
-    public InventoryPage inventoryFlow() {
+    public InventoryPage navigateToInventoryPage() {
+        isElementEnabled(inventoryLink);
         click(inventoryLink);
         return PageGenerator.getPage(InventoryPage.class);
+
+    }
+
+    public ManufacturingPage navigateToManufacturingPage() {
+        isElementEnabled(manufacturingLink);
+        click(manufacturingLink);
+        return PageGenerator.getPage(ManufacturingPage.class);
 
     }
 

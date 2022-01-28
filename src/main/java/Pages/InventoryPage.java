@@ -12,31 +12,21 @@ public InventoryPage(WebDriver driver){
 }
 
 
-    @FindBy(xpath = "//div[text()='Discuss']")
-    public WebElement discussLink;
+    @FindBy(xpath = "//span[text()='Inventory Overview']")
+    public WebElement inventoryOverviewHeader;
 
-    @FindBy(xpath = "//div[text()='Inventory']")
-    public WebElement inventoryLink;
+    @FindBy(xpath = "//button/span[contains(text(),'Products')]")
+    public WebElement productsMenu;
 
-    @FindBy(xpath = "//div[text()='Manufacturing']")
-    public WebElement manufacturingLink;
-
-    @FindBy(xpath = "//div[text()='Barcode']")
-    public WebElement barcodeLink;
+    @FindBy(xpath = "//a[text()='Products']")
+    public WebElement productsOption;
 
 
-    public void inventoryFlow() {
-        click(inventoryLink);
-
+    public ProductsPage navigateToProductsPage() {
+        Assert.assertTrue(isElementPresent(inventoryOverviewHeader),"Navigation to Inventory Page Failed");
+        click(productsMenu);
+        click(productsOption);
+        return PageGenerator.getPage(ProductsPage.class);
     }
-
-    public void homePageUIElementsCheck() {
-        Assert.assertTrue(isElementPresent(discussLink),"discussLink is not displayed");
-        Assert.assertTrue(isElementPresent(inventoryLink),"inventoryLink is not displayed");
-        Assert.assertTrue(isElementPresent(manufacturingLink),"manufacturingLink is not displayed");
-        Assert.assertTrue(isElementPresent(barcodeLink),"barcodeLink is not displayed");
-    }
-
-
 
 }
